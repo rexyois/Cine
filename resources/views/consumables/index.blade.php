@@ -8,9 +8,15 @@
     </div>
     <br><br>
     <div>
-        <a href="{{ route('consumables.create') }}"><button class="btn-primary">Agregar</button></a>
+        <a href="{{ route('consumables.create') }}"><button class="btn-info">Agregar</button></a>
     </div>
-
+    <br>
+    <div class="btn-group col-4" role="group" aria-label="Basic example">
+        <a href="{{ route('consumables.pdf') }}" class="btn btn-dark">PDF </a>
+        <a href="/consumablesXLS" class="btn btn-primary">xls </a>
+        <a href="/consumablesCSV" class="btn btn-dark">csv </a>
+        <a href="/consumablesxml" class="btn btn-primary">xml</a>
+    </div>
     <table class="table table-responsive-md">
 
         <thead>
@@ -77,7 +83,8 @@
                     </a>
                 </div>
             @endforelse
+
         </tbody>
     </table>
-
+    {{ $consumables->links() }}
 @endsection

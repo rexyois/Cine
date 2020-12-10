@@ -64,6 +64,7 @@
                     <option value="Infantil">Infantil</option>
                     <option value="Ciencia Ficción">Ciencia Ficción</option>
                     <option value="Suspenso">Suspenso</option>
+                    <option value="Suspenso">terror y suspenso</option>
 
                 </select>
             </div>
