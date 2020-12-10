@@ -1,4 +1,26 @@
 <?php return array (
+  'barryvdh/laravel-dompdf' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Barryvdh\\DomPDF\\ServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'PDF' => 'Barryvdh\\DomPDF\\Facade',
+    ),
+  ),
+  'bmatovu/laravel-xml' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Bmatovu\\LaravelXml\\LaravelXmlServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Xml' => 'Bmatovu\\LaravelXml\\LaravelXml',
+    ),
+  ),
   'facade/ignition' => 
   array (
     'providers' => 
@@ -36,6 +58,17 @@
     'providers' => 
     array (
       0 => 'Laravel\\Ui\\UiServiceProvider',
+    ),
+  ),
+  'maatwebsite/excel' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Excel' => 'Maatwebsite\\Excel\\Facades\\Excel',
     ),
   ),
   'nesbot/carbon' => 
