@@ -17,7 +17,7 @@ class CreateEntrancesTable extends Migration
             $table->id();
             $table->float('price', 9, 2);
             $table->time('hourEntrance', 0);
-            $table->string('salas_id', 30);
+            $table->string('rooms_id', 30);
             $table->timestamps();
         });
     }
