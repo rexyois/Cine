@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\entrance;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade as PDF;
+use Maatwebsite\Excel\Facades\Excel;
+use \App\Exports\EntrancesExport;
+use App\fuction;
 
 class EntranceController extends Controller
 {
@@ -96,5 +100,19 @@ class EntranceController extends Controller
     {
         $entrance->delete();
         return redirect()->route('entrances.index');
+    }
+    public function exportToPDF()
+    {
+        $entrances = entrance::get();
+        $pdf = PDF::loadView('entrances.exportToPDF', compact('entrances'));
+        return $pdf->download('entrances.pdf');
+    }
+    public function exportToXls()
+    {
+        return Excel::download(new EntrancesExport, 'entrances.xlsx');
+    }
+    public function exportToCsv()
+    {
+        return Excel::download(new EntrancesExport, 'entrances.csv');
     }
 }

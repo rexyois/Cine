@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\fuction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade as PDF;
+use Maatwebsite\Excel\Facades\Excel;
+use \App\Exports\FuctionsExport;
 
 class FuctionController extends Controller
 {
@@ -102,5 +105,19 @@ class FuctionController extends Controller
     {
         $fuction->delete();
         return redirect()->route('fuctions.index');
+    }
+    public function exportToPDF()
+    {
+        $fuctions = fuction::get();
+        $pdf = PDF::loadView('fuctions.exportToPDF', compact('fuctions'));
+        return $pdf->download('fuctions.pdf');
+    }
+    public function exportToXls()
+    {
+        return Excel::download(new FuctionsExport, 'fuctions.xlsx');
+    }
+    public function exportToCsv()
+    {
+        return Excel::download(new FuctionsExport, 'fuctions.csv');
     }
 }
